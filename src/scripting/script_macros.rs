@@ -1,29 +1,17 @@
+
 #[macro_export]
 macro_rules! run {
-    ($command:expr) => {
-        {
-            use std::process::Command;
-            let output = Command::new($command).output().ok();
-            match output.is_some(){
-                true => {
-                    let temp = output.unwrap();
-                    println!("{}",String::from_utf8(temp.stdout).unwrap());
-                },
-                false => println!("Please input a valid command")
-            }
-        }
-    };
-    ($command:expr,$args:expr) => {
-        {
-            use std::process::Command;
-            let output = Command::new($command).args($args).output().ok();
-            match output.is_some(){
-                true => {
-                    let temp = output.unwrap();
-                    println!("{}",String::from_utf8(temp.stdout).unwrap());
-                },
-                false => println!("Please input a valid command")
-            }
-        }
-    };
+    ($command:expr) => (
+        //use rusty::core::execute::interpret; Need to make a conditional import
+        println!("{}",execute::interpret($command.trim().split(' ').collect()));
+    )
+}
+
+#[macro_export]
+//Work on making this work for no input
+macro_rules! cd {
+    ($directory:expr) => (
+        // use rusty::utils::cd::change_directory; Need to make a conditional import
+        cd::change_directory($directory.trim().split(' ').collect());
+    )
 }

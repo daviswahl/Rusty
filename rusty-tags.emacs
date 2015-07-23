@@ -1,6 +1,7 @@
 
-/home/michael/Code/Rust/rusty/src/scripting/script_macros.rs,28
-macro_rules! run {run2,16
+/home/michael/Code/Rust/rusty/src/scripting/script_macros.rs,56
+macro_rules! run {run3,17
+macro_rules! cd {cd12,288
 
 /home/michael/Code/Rust/rusty/src/scripting/mod.rs,41
 pub mod script_macros;script_macros1,0
@@ -13,8 +14,8 @@ pub mod scripting;scripting10,194
 /home/michael/Code/Rust/rusty/src/utils/cd.rs,232
 pub fn change_directory(input: Vec<&str>){change_directory6,212
 mod tests {tests46,1420
-    fn test_change_directory_ok(){test_change_directory_ok53,1530
-    fn test_change_directory_fail(){test_change_directory_fail63,1816
+    fn test_change_directory_ok(){test_change_directory_ok53,1526
+    fn test_change_directory_fail(){test_change_directory_fail63,1812
 
 /home/michael/Code/Rust/rusty/src/utils/calc.rs,289
 pub fn calculate() {calculate4,44
@@ -33,7 +34,7 @@ pub mod calc;calc2,12
 pub mod cat;cat3,26
 
 /home/michael/Code/Rust/rusty/src/main.rs,24
-fn main() {main10,236
+fn main() {main11,246
 
 /home/michael/Code/Rust/rusty/src/core/autocomplete.rs,0
 

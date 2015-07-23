@@ -133,6 +133,7 @@ carriage_return	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/te
 carriage_return	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.2.10/src/win.rs	/^    fn carriage_return(&mut self) -> io::Result<bool> {$/;"	f
 cat	/home/michael/Code/Rust/rusty/src/utils/mod.rs	/^pub mod cat;$/;"	m
 cause	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.2.10/src/terminfo/mod.rs	/^    fn cause(&self) -> Option<&error::Error> {$/;"	f
+cd	/home/michael/Code/Rust/rusty/src/scripting/script_macros.rs	/^macro_rules! cd {$/;"	d
 cd	/home/michael/Code/Rust/rusty/src/utils/mod.rs	/^pub mod cd;$/;"	m
 change_directory	/home/michael/Code/Rust/rusty/src/utils/cd.rs	/^pub fn change_directory(input: Vec<&str>){$/;"	f
 check_alias	/home/michael/Code/Rust/rusty/src/core/config.rs	/^pub fn check_alias(input: Vec<&str>) -> Option<String> {$/;"	f

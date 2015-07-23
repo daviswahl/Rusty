@@ -1,6 +1,7 @@
-#![feature(plugin)]
+//#![feature(plugin)]
 //#![plugin(clippy)]
-#[macro_use] extern crate rusty;
+#[macro_use(run,cd)]
+extern crate rusty;
 use rusty::utils::*;
 use rusty::core::*;
 use rusty::core::prompt::Prompt;
@@ -35,8 +36,11 @@ fn main() {
                 prompt.update_prompt();
             }
 
-            &"cat" => {
-
+            &"macro" => {
+                println!("Running macros for testing:");
+                run!("ls -al");
+                cd!("~/");
+                run!("ls -al");
             }
 
             &""  => continue,

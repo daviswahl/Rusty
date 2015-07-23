@@ -47,7 +47,7 @@ mod tests {
     use std::path::Path;
     use std::env;
     use super::*;
-    
+
     #[test]
     #[should_panic]
     fn test_change_directory_ok(){
