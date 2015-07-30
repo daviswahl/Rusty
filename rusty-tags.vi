@@ -55,8 +55,8 @@ InputBuffer	/home/michael/Code/Rust/rusty/src/core/buffer_in.rs	/^impl InputBuff
 InputBuffer	/home/michael/Code/Rust/rusty/src/core/buffer_in.rs	/^pub struct InputBuffer {$/;"	s
 InterpretError	/home/michael/Code/Rust/rusty/src/core/error.rs	/^pub enum InterpretError {$/;"	g
 Key	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/display.rs	/^struct Key<'a>(&'a [&'a str]);$/;"	s
-Key	/home/michael/Code/Rust/rusty/src/core/keybinding.rs	/^impl Key {$/;"	i
-Key	/home/michael/Code/Rust/rusty/src/core/keybinding.rs	/^pub enum Key {$/;"	g
+Key	/home/michael/Code/Rust/rusty/src/interupt/keys.rs	/^impl Key {$/;"	i
+Key	/home/michael/Code/Rust/rusty/src/interupt/keys.rs	/^pub enum Key {$/;"	g
 Output	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.2.10/src/lib.rs	/^    type Output: Write;$/;"	T
 Output	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.2.10/src/terminfo/mod.rs	/^    type Output = T;$/;"	T
 Output	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.2.10/src/win.rs	/^    type Output = T;$/;"	T
@@ -300,7 +300,8 @@ into_inner	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/term-0.
 invalid_bare_numeral	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^    fn invalid_bare_numeral() {$/;"	f
 is_digit	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^fn is_digit(c: char) -> bool {$/;"	f
 key_name	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^    fn key_name(&mut self) -> Option<String> {$/;"	f
-keybinding	/home/michael/Code/Rust/rusty/src/core/mod.rs	/^pub mod keybinding;$/;"	m
+keymap	/home/michael/Code/Rust/rusty/src/interupt/mod.rs	/^pub mod keymap;$/;"	m
+keys	/home/michael/Code/Rust/rusty/src/interupt/mod.rs	/^pub mod keys;$/;"	m
 keyval_sep	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^    fn keyval_sep(&mut self) -> bool {$/;"	f
 linecol	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^    fn linecol() {$/;"	f
 literal_eats_crlf	/home/michael/.cargo/registry/src/github.com-0a35038f75765ae4/toml-0.1.21/src/parser.rs	/^    fn literal_eats_crlf() {$/;"	f
