@@ -19,8 +19,8 @@ dependencies = [
 
 [[package]]
 name = "clippy"
-version = "0.0.10"
-source = "git+https://github.com/manishearth/rust-clippy#0d125a298bbfd19e59ff14cf0e05ee07ae1d80c6"
+version = "0.0.11"
+source = "git+https://github.com/manishearth/rust-clippy#c91857c62d59639a8eb25d3789f75833484828f5"
 
 [[package]]
 name = "gcc"
