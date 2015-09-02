@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["Prompt","Prompt Struct containing prompt and cwd for use on every new line in Rusty"]]});

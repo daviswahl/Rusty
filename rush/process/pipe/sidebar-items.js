@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["piped","Piped The logic of piping is done here and calls the functions that execute the pipes and returns the result"]]});

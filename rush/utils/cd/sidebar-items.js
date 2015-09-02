@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["change_directory","Change Directory Function used to internally change the directory of the shell"]]});

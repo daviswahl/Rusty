@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["check_alias","Check Alias Checks if there is an alias available before passing on commands for execution"],["read_config_prompt","Read Config Prompt Used to read the options of the config file and parse the defined options to create a customized prompt"],["set_env_var","Set Env Var Sets system environment variables based on the configuration file"]]});

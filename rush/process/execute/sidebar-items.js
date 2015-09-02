@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["interpret","Interpret Given an input command, interpret parses and determines what and how to execute it and returns output or error output"],["run","Run Runs commands passed to it and returns the output"]]});
