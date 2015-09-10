@@ -10,8 +10,8 @@ use process::pq::*;
 ///Given an input command, interpret parses and determines what and how
 ///to execute it and returns output or error output
 pub fn interpret(command: String) -> String {
-    let mut op_queues = Opqueue::new();
-    let mut proc_queue = Procqueue::new();
+    let mut _op_queues = Opqueue::new();
+    let mut _proc_queue = Procqueue::new();
     let command: Vec<&str> = command.trim().split(' ').collect();
 
     //Split order:

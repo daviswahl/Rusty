@@ -1,5 +1,6 @@
 #![feature(plugin)]
-#![plugin(clippy)]
+#![feature(convert)]
+//#![plugin(clippy)]
 
 #![cfg(not(test))]
 #[macro_use] extern crate rush;
@@ -9,6 +10,9 @@ use rush::process::execute::interpret;
 use rush::prompt::Prompt;
 use rush::config::{check_alias,set_env_var};
 use std::thread;
+use std::fs::File;
+use std::env::home_dir;
+use std::io::{Read,Write};
 use copperline::*;
 
 fn main() {
@@ -23,7 +27,18 @@ fn main() {
     });
 
     let input_spawn = thread::spawn(move || {
-        Copperline::new()
+        let mut line_buffer = Copperline::new();
+        //Pull history from file here
+        let mut history = home_dir().expect("Home does not exist.");
+        history.push(".rusty_history");
+        let mut file = File::open(history).ok().expect("No History File");
+        let mut buffer = String::new();
+        let _result = file.read_to_string(&mut buffer);
+        let lines = buffer.split("\n").collect::<Vec<&str>>();
+        for i in lines {
+            line_buffer.add_history(i.to_owned());
+        }
+        line_buffer
     });
 
     //Set up buffer to read inputs and History Buffer
@@ -41,11 +56,7 @@ fn main() {
         let command = line.expect("Could not get line");
         input_buffer.add_history(command.clone());
 
-        //This is hackish and a stop gap for now. The important part is that
-        //a string is always being passed to interpret. Once interpret has
-        //been finished Main needs to be cleaned up more so that it can
-        //just use strings here
-        if command.starts_with("cd") {
+        if command.starts_with("cd ") || command == "cd".to_owned() {
             cd::change_directory(command.trim_left_matches("cd").to_owned());
             prompt.update_cwd();
             prompt.update_prompt();
@@ -72,13 +83,11 @@ fn main() {
                 }
 
             } else {
-                //Removes alias from the non cloned
-                //version like check_alias() does
                 let mut vec = alias
                     .expect("Should have returned an unwrappable value")
                     .to_owned();
 
-                //Removes alias and pushes the rest of the split onto 
+                //Removes alias and pushes the rest of the split onto
                 //the string
                 for (i,j) in command.split_whitespace()
                     .collect::<Vec<&str>>().iter().enumerate(){
@@ -87,7 +96,6 @@ fn main() {
                     }
                 }
 
-                //Temporary as this will get resplit in interpret
                 let output =  interpret(vec);
                 if !output.is_empty() {
                     println!("{}",output.trim());
@@ -98,5 +106,19 @@ fn main() {
         }
         //Updates the prompt for the next line
         prompt.print();
+    }
+
+    //Dump History to file here
+    let mut history = home_dir().expect("Home does not exist.");
+    history.push(".rusty_history");
+    let mut file = File::create(history).ok().expect("No History File");
+    for i in 0..input_buffer.get_current_history_length() {
+        if i == 199 { //Write only the last 200 commands to history
+            break;
+        }
+        let _unused_result = file.write(&input_buffer.remove_history_item(0)
+                                        .expect("Out of bounds")
+                                        .into_bytes().as_slice());
+        let _other_result = file.write(&[10]); //add new line charachter
     }
 }

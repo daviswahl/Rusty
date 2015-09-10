@@ -13,8 +13,8 @@ toml = "*"
 libc = "*"
 copperline = "*"
 
-[dependencies.clippy]
-git = "https://github.com/manishearth/rust-clippy"
+# [dependencies.clippy]
+# git = "https://github.com/manishearth/rust-clippy"
 
 [profile.dev]
 opt-level = 0
