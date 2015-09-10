@@ -1,9 +1,10 @@
 #![feature(plugin)]
 #![feature(convert)]
 //#![plugin(clippy)]
-
 #![cfg(not(test))]
-#[macro_use] extern crate rush;
+
+#[macro_use]
+extern crate rush;
 extern crate copperline;
 use rush::utils::*;
 use rush::process::execute::interpret;
@@ -16,8 +17,12 @@ use std::io::{Read,Write};
 use copperline::*;
 
 fn main() {
+
     //Sets environment variables written in config file
-    set_env_var();
+    thread::spawn(move || {
+        set_env_var();
+    });
+
     //Necessary to update as default prompt is not what we want
     //They were merely initialization values
     let prompt_spawn = thread::spawn(move || {
@@ -47,11 +52,12 @@ fn main() {
         line_buffer
     });
 
-    //Set up buffer to read inputs and History Buffer
+    //Set up buffer and prompts for use in program
     let mut input_buffer = input_spawn.join()
         .ok().expect("No InputBuffer made");
     let mut prompt = prompt_spawn.join()
         .ok().expect("No prompt made");
+
     //Loop to recieve and execute commands
     loop {
 
