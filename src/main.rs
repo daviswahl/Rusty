@@ -29,8 +29,14 @@ fn main() {
     let input_spawn = thread::spawn(move || {
         let mut line_buffer = Copperline::new();
         //Pull history from file here
+
         let mut history = home_dir().expect("Home does not exist.");
         history.push(".rusty_history");
+
+        //Creates file if it does not exist
+        let _create = File::create(history.clone());
+
+        //Opens file for reading and pushes them into history for the buffer
         let mut file = File::open(history).ok().expect("No History File");
         let mut buffer = String::new();
         let _result = file.read_to_string(&mut buffer);
