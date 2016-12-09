@@ -40,8 +40,9 @@ pub fn read_config_prompt(input: &Prompt) -> String {
         .expect("Failed to convert to str").split("%");
     let mut prompt = "".to_owned();
     for i in left {
-        if i.len() > 0 {
-            match i.char_at(0) {
+        let buf = i.chars().collect::<Vec<char>>();
+        if buf.len() > 0 {
+            match *buf.first().unwrap() {
                 'U' => prompt.push_str(&var("USER").ok()
                                        .expect("No user env variable")),
                 'H' => prompt.push_str(&String::from_utf8(Command::new("uname")
@@ -64,13 +65,13 @@ pub fn read_config_prompt(input: &Prompt) -> String {
                     }
 
                 }
-                 _ => prompt.push(i.char_at(0)),
+                 _ => prompt.push(*buf.first().unwrap()),
             }
         }
         //Add non Prompt special chars to prompt
-        if i.len() > 1 {
-            for j in 1 .. i.len() {
-                prompt.push(i.char_at(j));
+        if buf.len() > 1 {
+            for j in 1 .. buf.len() {
+                prompt.push(buf[j]);
             }
         }
     }

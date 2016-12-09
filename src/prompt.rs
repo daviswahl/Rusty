@@ -56,7 +56,7 @@ impl Prompt {
         //just the current directory
         if buff.starts_with(home_dir().expect("No Home directory").as_path()){
         let mut home = "~/".to_owned();
-            home.push_str(buff.as_path().relative_from(home_dir()
+            home.push_str(buff.as_path().strip_prefix(home_dir()
                                         .expect("No Home directory")
                                         .as_path()
                                         )
